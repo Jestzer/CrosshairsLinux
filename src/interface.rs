@@ -159,7 +159,7 @@ pub fn build_interface(
     bottom_bar.set_margin_end(10);
     bottom_bar.set_halign(Align::End);
 
-    let version_label = Label::new(Some("v1.0.0"));
+    let version_label = Label::new(Some(&format!("v{}", env!("CARGO_PKG_VERSION"))));
     version_label.add_css_class("interface-label");
     version_label.set_hexpand(true);
     version_label.set_halign(Align::Start);
