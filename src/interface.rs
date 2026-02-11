@@ -307,11 +307,13 @@ pub fn build_interface(
         });
     }
 
-    // Auto-save position when the window is closed
+    // Auto-save and quit the entire application when the interface window is closed
     {
         let config = config.clone();
+        let app = app.clone();
         window.connect_close_request(move |_| {
             config.borrow().save();
+            app.quit();
             gtk4::glib::Propagation::Proceed
         });
     }
